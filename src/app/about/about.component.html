@@ -1,0 +1,79 @@
+<form *ngIf="user" #userForm  [formGroup]="user">
+    <!-- <div class="form-group">
+        <label>Имя</label>
+        <input formControlName="name" [(ngModel)]="user.name" #name="ngModel" required />
+        <div *ngIf="name.invalid && (name.dirty || name.touched")>
+            <div *ngIf="name.errors.required">
+                Required feild
+            </div>
+            Не указано Имя
+        </div>
+    </div> -->
+    <!-- <div>
+        <label>Email</label>
+        <input formControlName="email" [(ngModel)]="user.email" #email="ngModel"
+            required pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" />
+        <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+            Некорректный email
+        </div>
+    </div> -->
+    <div>
+        <label>Улица:</label>
+        <input #spy #street="ngModel" formControlName="street" [(ngModel)]="user.street" name="street" required type="text" />
+        <div class="alert alert-danger" [hidden]="street.valid || street.pristine" >
+            Не указана Улица
+        </div>
+    </div>
+    <h3>Адрес</h3>
+    <!-- <div>
+        <label>Дом</label>
+        <input formControlName="suite" [(ngModel)]="user.suite" #suite="ngModel" required />
+        <div [hidden]="suite.valid || suite.untouched" class="alert alert-danger">
+            Не указан номер Дома
+        </div>
+    </div> -->
+    <!-- <div>
+        <label>Город</label>
+        <input formControlName="city"  [(ngModel)]="user.city" #city="ngModel" required />
+        <div [hidden]="city.valid || city.untouched" class="alert alert-danger">
+            Не указано название Города
+        </div>
+    </div> -->
+    <!-- <div>
+        <label>Индекс</label>
+        <input formControlName="zipcode" [(ngModel)]="user.zipcode" #zipcode="ngModel" 
+        required pattern="[1-6]{6}" />
+        <div [hidden]="zipcode.valid || zipcode.untouched" class="alert alert-danger">
+            Неверно указан Индекс
+        </div>
+    </div> -->
+    <!-- <div>
+        <label>Телефон</label>
+        <input formControlName="phone" [(ngModel)]="user.phone" #phone="ngModel"
+            required pattern="+[0-9]{2}+(+[0-9]{3}+)+[0-9]{3}+[0-9]{2}+[0-9]{2}" />
+        <div [hidden]="phone.valid || phone.untouched" class="alert alert-danger">
+            Некорректно указан телефон
+        </div>
+    </div> -->
+    <!-- <div>
+        <label>Сайт</label>
+        <input formControlName="website" [(ngModel)]="user.website" #website="ngModel" 
+            required pattern="[http(s)://)]+[a-zA-Z_]+?\.[a-zA-Z]" />
+        <div [hidden]="website.valid || website.untouched" class="alert alert-danger">
+            Некорректно указан адрес Сайта
+        </div>
+    </div> -->
+    <!-- <div>
+        <label>Компания</label>
+        <input formControlName="company" [(ngModel)]="user.company" #company="ngModel" required />
+        <div [hidden]="company.valid || company.untouched" class="alert alert-danger">
+            Не указано название Компании
+        </div>
+    </div> -->
+    {{ spy.street }}
+    <pre>
+        {{ user.value | json }}
+    </pre>
+    <!-- <button type="reset" (click)="cleanButtonClicked()" class="btn btn-light">Очистить</button> -->
+    
+</form>

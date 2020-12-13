@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th>Данные пользователя</th>
+        <th>ID</th>
+        <th>Информация</th>
+    </tr>
+    <tr *ngFor="let u of users" >
+        <th><button [routerLink]= '["/user"]' [queryParams]="{id: u.id}">Детали</button></th>
+        <th (click)="getPost(u)">{{u.id}}</th>
+        <th (click)="getPost(u)">{{u.title}}</th>
+        <th *ngIf="u.info" (click)="getPost(u)">
+            {{u.body}}
+        </th>
+    </tr>
+</table>

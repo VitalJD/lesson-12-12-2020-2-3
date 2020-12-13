@@ -42,13 +42,17 @@ export class AboutComponent implements OnInit, OnDestroy {
       console.log(user);
       this.user = new FormGroup({
         name: new FormControl(user.name, [Validators.required]),
-        email: new FormControl(user.email, [Validators.required, Validators.email]),
+        email: new FormControl(user.email, [Validators.required, 
+          Validators.pattern('[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}')]),
         street: new FormControl(user.address.street, [Validators.required]),
         suite: new FormControl(user.address.suite, [Validators.required]),
         city: new FormControl(user.address.city, [Validators.required]),
-        zipcode: new FormControl(user.address.zipcode, [Validators.required]),
-        phone: new FormControl(user.phone, [Validators.required]),
-        website: new FormControl(user.website, [Validators.required]),
+        zipcode: new FormControl(user.address.zipcode, [Validators.required, 
+          Validators.pattern('[1-6]{6}')]),
+        phone: new FormControl(user.phone, [Validators.required, 
+          Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')]),
+        website: new FormControl(user.website, [Validators.required, 
+          Validators.pattern('[http(s)://)]+[a-zA-Z_]+?\.[a-zA-Z]')]),
         company: new FormControl(user.company.name, [Validators.required]),
       });
         return user;

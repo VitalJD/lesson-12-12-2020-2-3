@@ -26,7 +26,7 @@
     <h3>Адрес</h3>
     <div>
         <label>Дом</label>
-        <input formControlName="suite" type="number" />
+        <input formControlName="suite" type="text" />
         <div class="alert alert-danger"
         *ngIf="user.controls['suite'].invalid && user.controls['suite'].touched">
             Не указан номер Дома
@@ -42,7 +42,7 @@
     </div>
     <div>
         <label>Индекс</label>
-        <input formControlName="zipcode" type="number" />
+        <input formControlName="zipcode" type="text" />
         <div class="alert alert-danger"
         *ngIf="user.controls['zipcode'].invalid && user.controls['zipcode'].touched">
             Некорректно указан Индекс

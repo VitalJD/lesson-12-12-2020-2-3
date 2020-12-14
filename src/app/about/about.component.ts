@@ -48,14 +48,14 @@ export class AboutComponent implements OnInit, OnDestroy {
         suite: new FormControl(user.address.suite, [Validators.required]),
         city: new FormControl(user.address.city, [Validators.required]),
         zipcode: new FormControl(user.address.zipcode, [Validators.required, 
-          Validators.pattern('[1-6]{6}')]),
+          Validators.pattern('[1-9]{6}'), Validators.min(6), Validators.max(6)]),
         phone: new FormControl(user.phone, [Validators.required, 
-          Validators.pattern('(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})')]),
+          Validators.pattern('[\+][0-9]{1,4}]?[- \.]?[(]{1}[0-9]{3}[)]{1}[- \.]?[0-9]{3}[- \.]?[0-9]{2}[- \.]?[0-9]{2}')]),
         website: new FormControl(user.website, [Validators.required, 
           Validators.pattern('[http(s)://)]+[a-zA-Z_]+?\.[a-zA-Z]')]),
         company: new FormControl(user.company.name, [Validators.required]),
       });
-        return user;
+        return user; 
     });
   }
 
